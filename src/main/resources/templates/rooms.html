@@ -1,0 +1,26 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="https://thymeleaf.org">
+<style>
+    table, th, td {
+        border: 1px solid black;
+        text-align: center;
+    }
+</style>
+<table class="table">
+    <thead class="thead-dark">
+    <tr>
+        <th scope="col">materiał</th>
+        <th scope="col">szerokość</th>
+        <th scope="col">wysokość</th>
+        <th scope="col">m2</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr  th:each="room : ${rooms}">
+        <td th:text="${room.name}"></td>
+        <td th:text="${room.width}"></td>
+        <td th:text="${room.height}"></td>
+        <td th:text="${room.width * room.height}"></td>
+    </tr>
+    </tbody>
+</table>

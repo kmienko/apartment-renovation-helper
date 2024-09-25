@@ -1,0 +1,36 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="https://thymeleaf.org">
+<style>
+  table, th, td {
+    border: 1px solid black;
+    text-align: center;
+  }
+</style>
+<div>
+<table class="table">
+  <thead class="thead-dark">
+  <tr>
+    <th scope="col">materiał</th>
+    <th scope="col">szerokość</th>
+    <th scope="col">wysokość</th>
+    <th scope="col">sztuk</th>
+    <th scope="col">m2 paczki</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr  th:each="mat : ${materials}">
+    <td th:text="${mat.name}"></td>
+    <td th:text="${mat.width}"></td>
+    <td th:text="${mat.height}"></td>
+    <td th:text="${mat.pieces}"></td>
+    <td th:text="${mat.packM2}"></td>
+  </tr>
+  </tbody>
+</table>
+<div>
+  <select class="form-control" id="matList" name="matList">
+    <option value="-1">wybierz</option>
+    <option th:each="mat : ${materials}" th:value="${mat.id}" th:text="${mat.name}"></option>
+  </select>
+</div>
+</div>
